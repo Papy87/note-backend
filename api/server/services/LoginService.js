@@ -1,4 +1,4 @@
-const {pool} = require('../src/database/database');
+const {DB} = require('../src/database/database');
 const moment = require("moment");
 
 class LoginService {
@@ -6,8 +6,7 @@ class LoginService {
 
         try {
             let query = `SELECT * FROM "users" WHERE email='${email}' ;`;
-            console.log()
-            return await pool.query(query)
+            return await DB.query(query)
         } catch
             (error) {
             throw error;
@@ -18,12 +17,11 @@ class LoginService {
         try {
             let query = `INSERT INTO "users" (first_name, last_name, email, password) VALUES ('${userData.firstName}', '${userData.lastName}', '${userData.email}', '${userData.password}');`;
 
-            return await pool.query(query);
+            return await DB.query(query);
         } catch (error) {
             throw error;
         }
     }
 }
 
-module
-    .exports = LoginService;
+module.exports = LoginService;
