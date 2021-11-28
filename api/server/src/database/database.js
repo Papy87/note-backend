@@ -8,10 +8,6 @@ class DB {
     static async query(query) {
         return await pool.query(query);
     }
-
-    static async endConnection() {
-        pool.end();
-    }
 }
 
 

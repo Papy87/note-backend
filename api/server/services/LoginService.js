@@ -3,7 +3,6 @@ const moment = require("moment");
 
 class LoginService {
     static async login(email) {
-
         try {
             let query = `SELECT * FROM "users" WHERE email='${email}' ;`;
             return await DB.query(query)
@@ -13,10 +12,9 @@ class LoginService {
         }
     }
 
-    static async register(userData) {
+    static async register({firstName,lastName,email,password}) {
         try {
-            let query = `INSERT INTO "users" (first_name, last_name, email, password) VALUES ('${userData.firstName}', '${userData.lastName}', '${userData.email}', '${userData.password}');`;
-
+            let query = `INSERT INTO "users" (first_name, last_name, email, password) VALUES ('${firstName}', '${lastName}', '${email}', '${password}');`;
             return await DB.query(query);
         } catch (error) {
             throw error;
