@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Papy87/author-books.git"
+    "url": "git+https://github.com/Papy87/note-backend.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Papy87/author-books/issues"
+    "url": "https://github.com/Papy87/note-backend/issues"
   },
-  "homepage": "https://github.com/Papy87/author-books#readme",
+  "homepage": "https://github.com/Papy87/note-backend#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
