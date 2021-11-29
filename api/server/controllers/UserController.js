@@ -9,7 +9,7 @@ class UserController {
     static async getUserProfil(req, res) {
         let id = req.params.id;
         let {userId} = await tokenDecoder(req);
-        if (id !== userId) {
+        if (Number(id) !== userId) {
             util.setSuccess(400, 'Wrong id');
             return util.send(res)
         }
@@ -32,8 +32,7 @@ class UserController {
         let {firstName, lastName, email} = req.body;
         let id = req.params.id;
         let {userId} = await tokenDecoder(req);
-
-        if (id !== userId) {
+        if (Number(id) !== userId) {
             util.setSuccess(400, 'Wrong id');
             return util.send(res)
         }
@@ -61,7 +60,7 @@ class UserController {
         let id = req.params.id;
         let {userId} = await tokenDecoder(req);
 
-        if (id !== userId) {
+        if (Number(id) !== userId) {
             util.setSuccess(400, 'Wrong id');
             return util.send(res)
         }
@@ -101,14 +100,12 @@ class UserController {
     static async deleteUser(req, res) {
         let id = req.params.id;
         let {userId} = await tokenDecoder(req);
-        if (id !== userId) {
+        if (Number(id) !== userId) {
             util.setSuccess(400, 'Wrong id');
             return util.send(res)
         }
-
         try {
             let userForDelet = await UserService.deleteUser(id);
-            console.log(userForDelet);
             if (userForDelet[2].rowCount) {
                 util.setSuccess(200, 'User successfully deleted');
             } else {

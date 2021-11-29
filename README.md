@@ -26,4 +26,35 @@ EMAIL= vas_email
 
 PASSWORD= vasa_email_sifra
 
-4.Pokrenuti aplikaciju sa npm start.
+4 Instalirati postgres bazu
+
+5.Napraviti 2 tabele notes, users
+
+create table notes
+(
+id                integer default nextval('note_id_seq'::regclass) not null
+constraint note_pk
+primary key,
+note_title        varchar,
+note_description  varchar,
+created_at        date,
+user_id           integer
+constraint note_users_id_fk
+references users,
+notification_time timestamp
+);
+
+create table users
+(
+id         serial
+constraint users_pk
+primary key,
+first_name varchar,
+last_name  varchar,
+email      varchar,
+password   varchar
+);
+
+6.Pokrenuti aplikaciju komandom npm start
+
+

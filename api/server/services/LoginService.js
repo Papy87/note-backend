@@ -1,5 +1,4 @@
 const {DB} = require('../src/database/database');
-const moment = require("moment");
 
 class LoginService {
     static async login(email) {
